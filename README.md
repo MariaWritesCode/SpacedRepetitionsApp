@@ -17,6 +17,8 @@ This is a .NET 5/Blazor application for using the flashcards technique. Every 1s
 ### Deployment / Services used
 1. The app uses an Azure SQL Server & SQL Database
 2. I started implementing redis cache usage and use redis cache for Azure
-3. Azure App Configuration is used for configuration
+3. Azure App Configuration is used for configuration (locally I use [AppSecrets](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-5.0&tabs=windows))
 4. API and Blazor projects are deployed on 2 different App Services
 5. Azure DevOps for Pipelines and Release
+
+
