@@ -1,0 +1,9 @@
+﻿@page "/newNote/{categoryId:long}"
+
+<h3>Add new note</h3>
+<NoteEditComponent NoteId="-1" CategoryIdForNewNote="categoryId" />
+
+@code {
+    [Parameter]
+    public long categoryId { get; set; }
+}

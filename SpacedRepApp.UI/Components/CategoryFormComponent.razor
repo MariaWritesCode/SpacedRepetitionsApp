@@ -1,0 +1,11 @@
+﻿<EditForm Model="@NewCategory" id="categoryForm" OnValidSubmit="@SubmitCategory">
+    <div class="form-group">
+        <Label For="categoryName">Category name: </Label>
+        <InputText id="categoryName" @bind-Value="NewCategory.Name"></InputText>
+        <small id="tooltip" class="form-text text-muted"><span class="oi oi-pin" aria-hidden="true"></span> Categories are collections of notes.</small>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submitCategory" form="categoryForm">Save</button>
+</EditForm>
+
+
+

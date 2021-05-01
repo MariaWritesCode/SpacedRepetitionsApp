@@ -1,0 +1,34 @@
+﻿<EditForm Model="@NoteToEdit" id="noteForm" OnValidSubmit="@SubmitHandler">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <div class="d-flex flex-column">
+            <InputTextArea id="contents" @bind-Value="NoteToEdit.Contents" rows="4"></InputTextArea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="d-flex flex-column">
+            <InputSelect id="categories" @bind-Value="NoteToEdit.CategoryId">
+                @foreach (var cat in AvailableCategories)
+                {
+                    <option value="@cat.Id">@cat.Name</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-group">
+        <Tooltip Text="Enter tags separated with space">
+            <div class="d-flex flex-column">
+                <InputTextArea id="tags" @bind-Value="selectedTagNames" rows="2"></InputTextArea>
+                @if (selectedTagNames != null && selectedTagNames.Count() > 0)
+                {
+                    listOfTagNames = selectedTagNames.Trim().Split(' ').ToList();
+                    listOfTagNames.RemoveAll(x => x == "");
+
+                    <TagSection DisplayTags="listOfTagNames" />
+                }
+
+            </div>
+        </Tooltip>
+    </div>
+    <div><button type="submit" class="btn btn-primary" form="noteForm">Save</button></div>
+</EditForm>  

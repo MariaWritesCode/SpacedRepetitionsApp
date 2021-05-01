@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>b860068c-fa93-4853-bdac-e7b1a0af0d89</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="4.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpacedRepApp.Infrastructure.Domain\SpacedRepApp.Infrastructure.Domain.csproj" />
+    <ProjectReference Include="..\SpacedRepApp.Infrastructure\SpacedRepApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\SpacedRepApp.Share\SpacedRepApp.Share.csproj" />
+  </ItemGroup>
+
+</Project>

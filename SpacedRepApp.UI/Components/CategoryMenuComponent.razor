@@ -1,0 +1,26 @@
+﻿@using SpacedRepApp.Share;
+<li class="nav-item px-3">
+    <NavLink class="nav-link" @onclick="()=>collapse = !collapse" href="#">
+        <span class="oi oi-box" aria-hidden="true"></span>Categories
+    </NavLink>
+</li>
+
+@if (allCategories == null || collapse != true)
+            {
+
+            }
+            else
+            {
+                foreach (var category in allCategories)
+                {
+                    var link = $"category/{category.Id}";
+<li class="nav-item px-3">
+    <NavLink class="nav-link" href="@link" Match="NavLinkMatch.All">
+        <span class="oi oi-bookmark" aria-hidden="true"></span> @category.Name<Button Color="Color.None" Clicked="@(() => DeleteCategory(category.Id))"><small class="menuicon"><span class="oi oi-x"></span></small></Button>
+    </NavLink>
+    
+</li>
+                }
+
+            }
+    

@@ -1,0 +1,30 @@
+﻿<div class="container">
+    <div class="row">
+        @foreach (var note in NotesToDisplay)
+        {
+            var link = $"editNote/{note.Id}";
+
+            string tags = String.Empty;
+            string revised = @note.Revised ? "Revised" : "Not Revised";
+
+            <div class="col-md-6 col-lg-4 col-xl-3 py-2">
+                <div class="card h-100">
+                    <div class="card-block">
+                        <CardTitle>
+                                <p class="badge badge-warning">@revised</p>
+                                <Button Color="Color.None" Type="ButtonType.Link" To="@link" Float="Float.Right" Outline="true"><span class="oi oi-pencil"></span></Button>
+                                <Button Color="Color.None" Float="Float.Right" Outline="true" Clicked="@(() => DeleteNote(note))"><span class="oi oi-circle-x"></span></Button>                      
+                        </CardTitle>
+                        <CardText>@note.Contents</CardText>
+                        <CardText><small class="text-muted">Next repeat: </small></CardText>
+                        @foreach (var tag in note.Tags)
+                        {
+                            <Badge Color="Color.Info">@tag.Name</Badge>
+                            <span></span>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

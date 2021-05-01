@@ -1,0 +1,8 @@
+﻿@page "/editNote/{noteId:long}";
+<h3>Edit Note</h3>
+<NoteEditComponent NoteId="noteId" />
+
+@code{
+    [Parameter]
+    public long noteId { get; set; }
+}
