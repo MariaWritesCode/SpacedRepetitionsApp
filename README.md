@@ -2,10 +2,17 @@
 
 ### Overview
 Spaced repetition is a study technique of repeating study material in intervals. You can read more about the technique [here](https://en.wikipedia.org/wiki/Spaced_repetition).
-This is a .NET 5/Blazor application for using the flashcards technique. Every 1st, 7th, 16th and 35th day from the flashcard creation, the app will remind you to revise the flashcard.
 
-### Current progress state
-1. Authorization/Identity has just been added and UserId foreign key was added to entities. Controllers and services in API will be modified to include UserId while creating new items. I plan on separating the db contexts with manual EF configuration later on
+This is my attempt of writing a .NET 5 / Blazor application for spaced repetitions using:
+
+* .NET 5 backend with Entity Framework Core, Redis on Azure, Azure Functions (tbd, for revision-notification mechanism), SQL Server
+* Blazor for front end
+* App is deployed on Azure App Service with SQL server and Azure-hosted database.
+
+The application will allow grouping flashcards ("Notes") into Categories and tagging notes with tags. Every 1, 5, 7, 16 and 35 days after note creation, the flashcard to repeat will appear on the main screen. Once it is revised, time to next repetition starts running.
+
+### Current progress
+1. Authorization/Identity has just been added and UserId foreign key was added to entities. Controllers and services in API will be modified to include UserId while creating new items.
 2. Repetition mechanism is yet to be implemented - there will be a service that will pick up notes by repetition dates and display them on the main screen (probably an Azure Function). 
 3. Unit tests for repetition mechanism and tag duplication prevention need to be written - for now there is not much to unit test.
 4. Blazor UI is very much in progress:
