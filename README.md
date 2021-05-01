@@ -3,7 +3,7 @@
 ### Overview
 Spaced repetition is a study technique of repeating study material in intervals. You can read more about the technique [here](https://en.wikipedia.org/wiki/Spaced_repetition).
 
-This is my attempt of writing a .NET 5 / Blazor application for spaced repetitions using:
+This is my attempt (during [Tech Leaders Program](https://techleaders.eu/)) of writing a .NET 5 / Blazor application for spaced repetitions using:
 
 * .NET 5 backend with Entity Framework Core, Redis on Azure, Azure Functions (tbd, for revision-notification mechanism), SQL Server
 * Blazor for front end
