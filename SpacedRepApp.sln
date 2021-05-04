@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpacedRepApp.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpacedRepApp.UI", "SpacedRepApp.UI\SpacedRepApp.UI.csproj", "{21C82ED0-0C37-48A0-8898-F04D9F83343B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpacedRepApp.UnitTests", "SpacedRepApp.UnitTests\SpacedRepApp.UnitTests.csproj", "{D05D9F5A-FA89-45A8-A2FA-36E9697A08E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{21C82ED0-0C37-48A0-8898-F04D9F83343B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21C82ED0-0C37-48A0-8898-F04D9F83343B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21C82ED0-0C37-48A0-8898-F04D9F83343B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05D9F5A-FA89-45A8-A2FA-36E9697A08E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05D9F5A-FA89-45A8-A2FA-36E9697A08E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05D9F5A-FA89-45A8-A2FA-36E9697A08E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05D9F5A-FA89-45A8-A2FA-36E9697A08E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
