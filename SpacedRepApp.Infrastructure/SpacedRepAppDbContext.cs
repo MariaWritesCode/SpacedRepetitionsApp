@@ -22,10 +22,6 @@ namespace SpacedRepApp.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().HasOne(category => category.User);
-            modelBuilder.Entity<Note>().HasOne(note => note.User);
-            modelBuilder.Entity<Tag>().HasOne(tag => tag.User);
-
             base.OnModelCreating(modelBuilder);
         }
     }

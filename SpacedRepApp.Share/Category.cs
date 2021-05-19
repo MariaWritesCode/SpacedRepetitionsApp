@@ -9,8 +9,5 @@ namespace SpacedRepApp.Share
         public string Name { get; set; }        
 
         public List<Note> Notes { get; set; }
-
-        public string UserId { get; set; }
-        public IdentityUser User { get; set; }
     }
 }

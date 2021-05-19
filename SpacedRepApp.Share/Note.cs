@@ -20,8 +20,5 @@ namespace SpacedRepApp.Share
 
         [JsonIgnore]
         public Category Category { get; set; }
-
-        public string UserId { get; set; }
-        public IdentityUser User { get; set; }
     }
 }
