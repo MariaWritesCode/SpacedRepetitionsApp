@@ -32,17 +32,17 @@ namespace SpacedRepApp.UI
 
             services.AddHttpClient<ICategoryService, CategoryService>(client =>
             {
-                client.BaseAddress = new Uri(Configuration["Settings:LocalAppURI"]);
+                client.BaseAddress = new Uri(Configuration["Settings:AppURI"]);
             });
 
             services.AddHttpClient<INoteService, NoteService>(client =>
             {
-                client.BaseAddress = new Uri(Configuration["Settings:LocalAppURI"]);
+                client.BaseAddress = new Uri(Configuration["Settings:AppURI"]);
             });
 
             services.AddHttpClient<ITagService, TagService>(client =>
             {
-                client.BaseAddress = new Uri(Configuration["Settings:LocalAppURI"]);
+                client.BaseAddress = new Uri(Configuration["Settings:AppURI"]);
             });
 
             services
