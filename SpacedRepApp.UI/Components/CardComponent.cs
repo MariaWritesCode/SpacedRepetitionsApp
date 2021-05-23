@@ -26,5 +26,12 @@ namespace SpacedRepApp.UI.Components
             NotesToDisplay = await _noteService.GetAllNotesForCategory(note.CategoryId);
             StateHasChanged();
         }
+
+        public async Task ReviseNote(Note note)
+        {
+            await _noteService.ReviseNote(note.Id, note);
+            NotesToDisplay = await _noteService.GetAllNotesForCategory(note.CategoryId);
+            StateHasChanged();
+        }
     }
 }

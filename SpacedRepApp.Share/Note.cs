@@ -15,6 +15,8 @@ namespace SpacedRepApp.Share
         public DateTime NextRepetition { get; set; }
         public bool Revised { get; set; }
 
+        public int RepetitionCount { get; set; }
+
         public List<Tag> Tags { get; set; }
         public long CategoryId { get; set; }
 

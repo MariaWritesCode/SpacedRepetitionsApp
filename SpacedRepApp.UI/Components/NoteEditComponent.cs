@@ -1,5 +1,4 @@
-﻿using Blazorise;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using SpacedRepApp.Share;
 using SpacedRepApp.UI.Services;
 using System;
@@ -26,7 +25,7 @@ namespace SpacedRepApp.UI.Components
         [Inject]
         public ITagService TagFormService { get; set; }
 
-        public Note NoteToEdit { get; set; } = new Note();
+        public Note NoteToEdit { get; set; }
         public List<Category> AvailableCategories { get; set; } = new List<Category>();
         public List<Tag> AvailableTags { get; set; } = new List<Tag>();
 
@@ -83,7 +82,7 @@ namespace SpacedRepApp.UI.Components
                 {
                     NoteToEdit.Tags.Add(new Tag { Name = tag });                    
                 }
-            }            
+            }
         }
 
         private async Task PostTags(IEnumerable<Tag> tagsToPost)

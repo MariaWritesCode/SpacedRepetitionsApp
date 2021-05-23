@@ -42,8 +42,10 @@ namespace SpacedRepApp.Controllers
             var note = new Note {
                 Id = item.Id,
                 DateCreated = DateTime.Now,
+                NextRepetition = DateTime.Now.AddDays(1),
                 Contents = item.Contents,
                 Revised = false,
+                RepetitionCount = 0,
                 CategoryId = item.CategoryId,
                 Tags = item.Tags
              };
@@ -57,13 +59,15 @@ namespace SpacedRepApp.Controllers
         // PUT api/<NotesController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(long id, NoteDto item)
-        {          
+        {
 
             var updatedNote = new Note {
-                Id = item.Id,
+                Id = id,
                 DateCreated = item.DateCreated,
+                NextRepetition = item.NextRepetition,
                 Contents = item.Contents,
                 Revised = item.Revised,
+                RepetitionCount = item.RepetitionCount,
                 CategoryId = item.CategoryId,
                 Tags = item.Tags
              };

@@ -14,7 +14,7 @@ namespace SpacedRepApp.UI.Services
     public class NoteService : INoteService
     {
         private readonly HttpClient _httpClient;
-        private readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true, ReferenceHandler = ReferenceHandler.Preserve };
+        private readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
         private static IConfiguration _configuration;
 
         private readonly string requestUrl;
@@ -64,7 +64,7 @@ namespace SpacedRepApp.UI.Services
                 
             using (HttpContent httpContent = new StringContent(jsonStringNote, Encoding.UTF8, "application/json"))
             {
-                HttpResponseMessage response = await _httpClient.PutAsync(requestUrl, httpContent);
+                HttpResponseMessage response = await _httpClient.PutAsync($"{requestUrl}/{id}", httpContent);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -103,6 +103,47 @@ namespace SpacedRepApp.UI.Services
             }
 
             return default;
+        }
+
+        public async Task ReviseNote(long id, Note note)
+        {
+            note.NextRepetition = SetNextRepetetionDate(note);
+            var jsonStringNote = JsonSerializer.Serialize(note, jsonOptions);
+
+            using (HttpContent httpContent = new StringContent(jsonStringNote, Encoding.UTF8, "application/json"))
+            {
+                HttpResponseMessage response = await _httpClient.PutAsync($"{requestUrl}/{id}", httpContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine(await response.Content.ReadAsStringAsync());
+                }
+                else
+                {
+                    Console.WriteLine(response.StatusCode);
+                }
+            }
+        }
+
+        private DateTime SetNextRepetetionDate(Note note)
+        {            
+            switch (note.RepetitionCount)
+            {
+                case 0:
+                    note.RepetitionCount++;
+                    return note.DateCreated.AddDays(1);
+                case 1:
+                    note.RepetitionCount++;
+                    return note.NextRepetition.AddDays(7);
+                case 2:
+                    note.RepetitionCount++;
+                    return note.NextRepetition.AddDays(16);
+                case 3:
+                    note.RepetitionCount++;
+                    return note.NextRepetition.AddDays(35);
+                default:
+                    return DateTime.MinValue;
+            }
         }
     }
 }
