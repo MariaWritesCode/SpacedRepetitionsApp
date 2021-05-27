@@ -145,5 +145,19 @@ namespace SpacedRepApp.UI.Services
                     return DateTime.MinValue;
             }
         }
+
+        public async Task<List<Note>> GetNotesToRevise()
+        {
+            var response = await _httpClient.GetAsync(requestUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stringContent = await response.Content.ReadAsStringAsync();
+                var listOfNotes = JsonSerializer.Deserialize<List<Note>>(stringContent, jsonOptions);
+                return listOfNotes.Where(x => x.NextRepetition.Date == DateTime.Today.Date).ToList();
+            }
+
+            return default;
+        }
     }
 }
