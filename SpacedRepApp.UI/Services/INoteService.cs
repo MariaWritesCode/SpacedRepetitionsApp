@@ -9,10 +9,8 @@ namespace SpacedRepApp.UI.Services
     public interface INoteService
     {
         Task EditNote(long id, Note note);
-        Task ReviseNote(long id, Note note);
         Task<Note> GetNote(long id, bool includeAll = true);
         Task<List<Note>> GetAllNotesForCategory(long categoryId);
-        Task<List<Note>> GetNotesToRevise();
         Task AddNote(Note note);
         Task Delete(long noteId);
     }

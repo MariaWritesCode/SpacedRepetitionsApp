@@ -16,6 +16,8 @@ namespace SpacedRepApp.UI.Components
         public ICategoryService _categoryService { get; set; }
         [Inject]
         public INoteService _noteService { get; set; }
+        [Inject]
+        public INoteRepetitionService _noteRepetitionService { get; set; }
 
         [Parameter]
         public List<Note> NotesToDisplay { get; set; }       
@@ -29,7 +31,7 @@ namespace SpacedRepApp.UI.Components
 
         public async Task ReviseNote(Note note)
         {
-            await _noteService.ReviseNote(note.Id, note);
+            await _noteRepetitionService.ReviseNote(note.Id, note);
             NotesToDisplay = await _noteService.GetAllNotesForCategory(note.CategoryId);
             StateHasChanged();
         }

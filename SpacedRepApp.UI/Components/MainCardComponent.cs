@@ -11,11 +11,11 @@ namespace SpacedRepApp.UI.Components
         private List<Note> NotesToRevise;
 
         [Inject]
-        public INoteService _noteService { get; set; }
+        public INoteRepetitionService _noteRepetitiionService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            NotesToRevise = await _noteService.GetNotesToRevise();
+            NotesToRevise = await _noteRepetitiionService.GetNotesToRevise();
         }
     }
 }

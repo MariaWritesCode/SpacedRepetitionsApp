@@ -29,6 +29,7 @@ namespace SpacedRepApp.UI
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<INoteService, NoteService>();
+            services.AddScoped<INoteRepetitionService, NoteRepetitionService>();
 
             services.AddHttpClient<ICategoryService, CategoryService>(client =>
             {
