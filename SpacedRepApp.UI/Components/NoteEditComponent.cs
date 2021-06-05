@@ -1,5 +1,4 @@
-﻿using Blazorise;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using SpacedRepApp.Share;
 using SpacedRepApp.UI.Services;
 using System;
@@ -38,7 +37,8 @@ namespace SpacedRepApp.UI.Components
         {
             if (NoteId < 0)
             {
-                NoteToEdit = new Note() { CategoryId = CategoryIdForNewNote, Tags=new List<Tag>() };
+                NoteToEdit.CategoryId = CategoryIdForNewNote;
+                NoteToEdit.Tags=new List<Tag>();
                 newNote = true;
             }
             else
@@ -83,7 +83,7 @@ namespace SpacedRepApp.UI.Components
                 {
                     NoteToEdit.Tags.Add(new Tag { Name = tag });                    
                 }
-            }            
+            }
         }
 
         private async Task PostTags(IEnumerable<Tag> tagsToPost)

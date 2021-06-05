@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SpacedRepApp.UI.Services
@@ -14,7 +13,7 @@ namespace SpacedRepApp.UI.Services
     public class NoteService : INoteService
     {
         private readonly HttpClient _httpClient;
-        private readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true, ReferenceHandler = ReferenceHandler.Preserve };
+        private readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
         private static IConfiguration _configuration;
 
         private readonly string requestUrl;
@@ -64,7 +63,7 @@ namespace SpacedRepApp.UI.Services
                 
             using (HttpContent httpContent = new StringContent(jsonStringNote, Encoding.UTF8, "application/json"))
             {
-                HttpResponseMessage response = await _httpClient.PutAsync(requestUrl, httpContent);
+                HttpResponseMessage response = await _httpClient.PutAsync($"{requestUrl}/{id}", httpContent);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -103,6 +102,6 @@ namespace SpacedRepApp.UI.Services
             }
 
             return default;
-        }
+        }        
     }
 }

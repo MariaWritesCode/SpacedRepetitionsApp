@@ -11,12 +11,13 @@
                 <div class="card h-100">
                     <div class="card-block">
                         <CardTitle>
-                                <p class="badge badge-warning">@revised</p>
-                                <Button Color="Color.None" Type="ButtonType.Link" To="@link" Float="Float.Right" Outline="true"><span class="oi oi-pencil"></span></Button>
-                                <Button Color="Color.None" Float="Float.Right" Outline="true" Clicked="@(() => DeleteNote(note))"><span class="oi oi-circle-x"></span></Button>                      
+                            <p class="badge badge-warning">@revised</p>
+                            <Button Color="Color.None" Type="ButtonType.Link" To="@link" Float="Float.Right" Outline="true"><span class="oi oi-pencil"></span></Button>
+                            <Button Color="Color.None" Float="Float.Right" Outline="true" Clicked="@(() => DeleteNote(note))"><span class="oi oi-circle-x"></span></Button>
+                            <Tooltip Text="Revised!"><Button Color="Color.None" Float="Float.Right" Outline="true" Clicked="@(() => ReviseNote(note))"><span class="oi oi-check"></span></Button></Tooltip>
                         </CardTitle>
                         <CardText>@note.Contents</CardText>
-                        <CardText><small class="text-muted">Next repeat: </small></CardText>
+                        <CardText><small class="text-muted">Next repeat: @note.NextRepetition.ToString("dd/MM/yy")</small></CardText>
                         @foreach (var tag in note.Tags)
                         {
                             <Badge Color="Color.Info">@tag.Name</Badge>
