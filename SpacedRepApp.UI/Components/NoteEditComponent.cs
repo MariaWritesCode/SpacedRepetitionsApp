@@ -25,7 +25,7 @@ namespace SpacedRepApp.UI.Components
         [Inject]
         public ITagService TagFormService { get; set; }
 
-        public Note NoteToEdit { get; set; }
+        public Note NoteToEdit { get; set; } = new Note();
         public List<Category> AvailableCategories { get; set; } = new List<Category>();
         public List<Tag> AvailableTags { get; set; } = new List<Tag>();
 
@@ -37,7 +37,8 @@ namespace SpacedRepApp.UI.Components
         {
             if (NoteId < 0)
             {
-                NoteToEdit = new Note() { CategoryId = CategoryIdForNewNote, Tags=new List<Tag>() };
+                NoteToEdit.CategoryId = CategoryIdForNewNote;
+                NoteToEdit.Tags=new List<Tag>();
                 newNote = true;
             }
             else
